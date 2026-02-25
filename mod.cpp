@@ -1,0 +1,13 @@
+name = "Hey You";
+author = "YourName";
+picture = "mod.paa";
+logo = "mod.paa";
+logoOver = "mod.paa";
+logoSmall = "mod.paa";
+tooltip = "Silent attention signals for teammates";
+tooltipOwned = "Silent attention signals for teammates";
+overview = "Adds ACE self-interaction menu to silently get a teammate's attention with various signals like throwing a twig, snapping fingers, etc.";
+action = "";
+actionName = "";
+hideName = 0;
+hidePicture = 0;
