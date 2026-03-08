@@ -1,0 +1,64 @@
+[h1]DESCRIPTION[/h1]
+
+Hey You! is an Arma 3 mod that lets you silently get a teammate's attention using subtle sound signals — tongue clicks, twig throws, and lizard squeaks. Signal through the ACE self-interaction menu or fire off a quick keybind while looking at a squadmate.
+
+[i]Requires ACE3 and CBA_A3. All settings are server-synced through CBA addon options.[/i]
+
+[hr][/hr]
+
+[h1]FEATURES[/h1]
+
+[list]
+[*] [b]ACE Self-Interaction Menu[/b]
+Open the "Hey You!" menu from ACE self-interaction to pick a nearby group member and choose how you want to get their attention.
+
+[*] [b]General Signal[/b]
+Play a sound without targeting anyone specific. Great for a quick ambient "heads up" to anyone nearby.
+
+[*] [b]CBA Keybinds[/b]
+Skip the menu entirely — just look at a teammate and press a key. Default binds:
+  Left Ctrl + L — Tongue Click
+  Left Ctrl + ; — Throw a Twig
+  Left Ctrl + ' — Lizard Squeak
+
+[*] [b]3D Floating Text[/b]
+The receiver sees a fading yellow message above the sender's head so they know exactly who signaled them.
+
+[*] [b]Hint Notification[/b]
+A hint message also pops up on the receiver's screen with details about the signal.
+
+[*] [b]3D Positional Sound[/b]
+Each signal plays a sound at the sender's position, audible within 50 meters. Nearby players will hear it too.
+
+[*] [b]Server-Synced Settings[/b]
+Admins can configure signal distance, text duration, text size, and toggle notifications on or off through CBA addon options.
+[/list]
+
+[hr][/hr]
+
+[h1]REQUIREMENTS[/h1]
+
+[list]
+[*] [url=https://steamcommunity.com/workshop/filedetails/?id=463939057]ACE3[/url]
+[*] [url=https://steamcommunity.com/workshop/filedetails/?id=450814997]CBA_A3[/url]
+[/list]
+
+[hr][/hr]
+
+[h1]SETUP[/h1]
+
+[list]
+[*] Subscribe to this mod along with ACE3 and CBA_A3.
+[*] Enable all three in the Arma 3 launcher.
+[*] In-game, open ACE self-interaction and look for the "Hey You!" option.
+[*] Keybinds can be rebound under CBA Keybindings > HeyYou.
+[*] Server admins can tweak settings under CBA Settings > Hey You!
+[/list]
+
+See the [url=https://github.com/Mantiamd/Hey_You]GitHub README[/url] for more details.
+
+[hr][/hr]
+
+[h1]SUPPORT MY PATREON![/h1]
+
+Want to help keep me off the overtime list at work and spending more time on Arma 3 modding? [url=https://patreon.com/GoonSix]Buy me a coffee or Baja Blast![/url]

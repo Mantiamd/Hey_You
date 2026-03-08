@@ -57,6 +57,10 @@ Keybinds skip the menu entirely — just look at a teammate and press the bound 
 - All CBA settings are server-authoritative and synced to clients.
 - Compatible with dedicated servers (the mod's init exits early on headless/dedicated machines).
 
+## Support
+
+Want to help keep me off the overtime list at work and spending more time on Arma 3 modding? [Buy me a coffee or Baja Blast on Patreon!](https://patreon.com/GoonSix)
+
 ## License
 
 See repository for license details.
