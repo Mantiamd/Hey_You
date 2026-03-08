@@ -1,8 +1,30 @@
 [h1]DESCRIPTION[/h1]
 
-Hey You! is an Arma 3 mod that lets you silently get a teammate's attention using subtle sound signals — tongue clicks, twig throws, and lizard squeaks. Signal through the ACE self-interaction menu or fire off a quick keybind while looking at a squadmate.
+Hey You! is an Arma 3 mod that provides a simple, effective way to get the attention of a [b]specific[/b] player using subtle sound signals — tongue clicks, twig throws, and lizard squeaks. Signal through the ACE self-interaction menu or fire off a quick keybind while looking at a squadmate.
 
-[i]Requires ACE3 and CBA_A3. All settings are server-synced through CBA addon options.[/i]
+[i]This can be run clientside but requires all clients who want the notification to also be running the mod. It is required on the server if you want to adjust the settings.[/i]
+
+[hr][/hr]
+
+[h1]WHY THIS MOD?[/h1]
+
+Arma already has signal sounds, hand-and-arm gestures, and voice communication — so why another communication tool?
+
+If you've ever been a real-life team or squad leader and then stepped into Arma, you'll quickly notice something ironic: [b]leading an element can actually be harder in-game than it is in real life.[/b]
+
+In reality, you can:
+[list]
+[*] Make eye contact
+[*] Physically point or turn someone
+[*] Recognize teammates by face, size, or mannerisms
+[*] Use subtle noises or gestures to cue one specific person
+[/list]
+
+In Arma, many of those small but critical leadership tools are missing or unreliable. It's harder to identify individuals, harder to non-verbally direct someone, and harder to discreetly get one player's attention without broadcasting over comms.
+
+This mod is designed to help bridge that gap. It allows you to [b]target a specific player and get their attention[/b] using subtle, situational cues — helping simulate the kind of small, direct communication that happens naturally in real-life small-unit leadership.
+
+The goal is not to replace voice comms, but to [b]supplement them[/b], especially in moments where talking isn't ideal or breaks immersion.
 
 [hr][/hr]
 
@@ -36,6 +58,16 @@ Admins can configure signal distance, text duration, text size, and toggle notif
 
 [hr][/hr]
 
+[h1]SIGNALS[/h1]
+
+[list]
+[*] [b]Tongue Click[/b] — A quick double tongue click
+[*] [b]Throw a Twig[/b] — Toss a small twig at a teammate
+[*] [b]Lizard Squeak[/b] — A subtle high-pitched squeak
+[/list]
+
+[hr][/hr]
+
 [h1]REQUIREMENTS[/h1]
 
 [list]
@@ -56,6 +88,14 @@ Admins can configure signal distance, text duration, text size, and toggle notif
 [/list]
 
 See the [url=https://github.com/Mantiamd/Hey_You]GitHub README[/url] for more details.
+
+[hr][/hr]
+
+[h1]INSPIRATION[/h1]
+
+The idea for this mod came from a Discord discussion where players were sharing mod suggestions and concepts. [b]Miller[/b] [i](aka Miller's Marauders, aka that one of many Millers snooping around)[/i] suggested a mechanic where you could get a teammate's attention by throwing a small object, like a twig, at them.
+
+After discussing the idea with him directly, he also pointed me toward an interview with former [b]MACV-SOG LTC Ed Wolcoff (RT New York)[/b]. In that interview, Wolcoff describes the use of a subtle attention-getting noise known as a [b]"lizard squeak"[/b] — a concept that is also represented in this mod.
 
 [hr][/hr]
 

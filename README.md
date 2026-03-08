@@ -1,6 +1,27 @@
 # Hey You!
 
-An Arma 3 mod that lets players silently get a teammate's attention using subtle sound signals — tongue clicks, twig throws, and lizard squeaks — through the ACE self-interaction menu or CBA keybinds.
+An Arma 3 mod that provides a simple, effective way to get the attention of a *specific* player using subtle sound signals — tongue clicks, twig throws, and lizard squeaks — through the ACE self-interaction menu or CBA keybinds.
+
+> **Note:** This can be run clientside but requires all clients who want the notification to also be running the mod. It is required on the server if you want to adjust the settings.
+
+## Why This Mod?
+
+Arma already has signal sounds, hand-and-arm gestures, and voice communication — so why another communication tool?
+
+If you've ever been a real-life team or squad leader and then stepped into Arma, you'll quickly notice something ironic: **leading an element can actually be harder in-game than it is in real life.**
+
+In reality, you can:
+
+- Make eye contact
+- Physically point or turn someone
+- Recognize teammates by face, size, or mannerisms
+- Use subtle noises or gestures to cue one specific person
+
+In Arma, many of those small but critical leadership tools are missing or unreliable. It's harder to identify individuals, harder to non-verbally direct someone, and harder to discreetly get one player's attention without broadcasting over comms.
+
+This mod is designed to help bridge that gap. It allows you to **target a specific player and get their attention** using subtle, situational cues — helping simulate the kind of small, direct communication that happens naturally in real-life small-unit leadership.
+
+The goal is not to replace voice comms, but to **supplement them**, especially in moments where talking isn't ideal or breaks immersion.
 
 ## Features
 
@@ -56,6 +77,12 @@ Keybinds skip the menu entirely — just look at a teammate and press the bound 
 - Signal logic runs on the sender's client; notifications are delivered to the receiver via `remoteExec`.
 - All CBA settings are server-authoritative and synced to clients.
 - Compatible with dedicated servers (the mod's init exits early on headless/dedicated machines).
+
+## Inspiration
+
+The idea for this mod came from a Discord discussion where players were sharing mod suggestions and concepts. **Miller** *(aka Miller's Marauders, aka that one of many Millers snooping around)* suggested a mechanic where you could get a teammate's attention by throwing a small object, like a twig, at them.
+
+After discussing the idea with him directly, he also pointed me toward an interview with former **MACV-SOG LTC Ed Wolcoff (RT New York)**. In that interview, Wolcoff describes the use of a subtle attention-getting noise known as a **"lizard squeak"** — a concept that is also represented in this mod.
 
 ## Support
 
