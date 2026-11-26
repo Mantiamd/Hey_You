@@ -71,7 +71,7 @@ All settings are server-synced and configurable through CBA's addon options menu
 4. The chosen signal plays a 3D sound at the sender's position and sends a notification to the receiver via `remoteExec`.
 5. The receiver sees floating 3D text above the sender and/or a hint, depending on server settings.
 
-Keybinds skip the menu entirely — just look at a teammate and press the bound key.
+Keybinds skip the menu entirely — just look at a teammate and press the bound key. If you look at a vehicle, the signal goes to the nearest group member riding in it.
 
 ## Multiplayer
 

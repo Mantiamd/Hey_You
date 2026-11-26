@@ -19,10 +19,35 @@ if (_signalIndex < 0 || _signalIndex >= count HEYU_signals) exitWith {
     diag_log format ["[HEYU] keybindSignal failed: invalid signal index %1", _signalIndex];
 };
 
-// Get the target the player is looking at
-private _target = cursorTarget;
+// Silent fail if the sender is dead or unconscious (ACE hides the menu then,
+// but keybinds still fire)
+if !([player] call ace_common_fnc_isAwake) exitWith {};
+
+// Get the object the player is looking at.
+// cursorObject is used instead of cursorTarget, which depends on the game's
+// target knowledge and can lag behind or stick to a previous target.
+private _target = cursorObject;
 
 // Silent fail if no target
+if (isNull _target) exitWith {};
+
+// Looking at a vehicle: resolve it to the nearest valid crew member
+// (human player in our group, alive, not ourselves) instead of the vehicle.
+if !(_target isKindOf "CAManBase") then {
+    private _crew = (crew _target) select {
+        _x != player &&
+        isPlayer _x &&
+        alive _x &&
+        group _x == group player
+    };
+    _target = objNull;
+    if (_crew isNotEqualTo []) then {
+        _crew = [_crew, [], {player distance _x}, "ASCEND"] call BIS_fnc_sortBy;
+        _target = _crew select 0;
+    };
+};
+
+// Silent fail if no valid unit was found
 if (isNull _target) exitWith {};
 
 // Silent fail if target is not a player

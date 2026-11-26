@@ -14,6 +14,7 @@ class CfgPatches {
         requiredVersion = 2.00;
         requiredAddons[] = {
             "A3_Functions_F",
+            "ace_common",
             "ace_interact_menu",
             "cba_main",
             "cba_keybinding",
