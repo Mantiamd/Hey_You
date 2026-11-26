@@ -47,6 +47,7 @@ All settings are server-synced and configurable through CBA's addon options menu
 | 3D Text Duration | 5s | 1–15s |
 | Hint Duration | 10s | 1–30s |
 | 3D Text Size | 0.025 | 0.01–0.05 |
+| Signal Cooldown | 2s | 0–10s |
 | Enable 3D Text | On | On/Off |
 | Enable Hints | On | On/Off |
 

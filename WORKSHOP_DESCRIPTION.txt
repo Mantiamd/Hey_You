@@ -53,7 +53,7 @@ A hint message also pops up on the receiver's screen with details about the sign
 Each signal plays a sound at the sender's position, audible within 50 meters. Nearby players will hear it too.
 
 [*] [b]Server-Synced Settings[/b]
-Admins can configure signal distance, text duration, text size, and toggle notifications on or off through CBA addon options.
+Admins can configure signal distance, signal cooldown, text duration, text size, and toggle notifications on or off through CBA addon options.
 [/list]
 
 [hr][/hr]

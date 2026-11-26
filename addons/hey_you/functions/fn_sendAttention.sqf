@@ -34,13 +34,17 @@ if ((player distance _target) > HEYU_maxDistance) exitWith {
     hint format ["Too far away! Must be within %1m", HEYU_maxDistance];
 };
 
+// Cooldown - silently ignore signals sent too quickly (HEYU_signalCooldown CBA setting)
+if (diag_tickTime - HEYU_lastSignalTime < HEYU_signalCooldown) exitWith {};
+HEYU_lastSignalTime = diag_tickTime;
+
 private _senderName = name player;
 private _message = format [_messageFormat, _senderName];
 
 diag_log format ["[HEYU] %1 sending attention signal to %2: %3", _senderName, name _target, _message];
 
 // Play 3D sound at sender's position (audible within 50m)
-// Uses HEYU_soundVolume from CBA settings, fixed 50m audible range
+// Uses hardcoded HEYU_soundVolume, fixed 50m audible range
 if (_soundPath != "") then {
     // playSound3D: [sound, source, isInside, position, volume, pitch, maxDistance]
     playSound3D [_soundPath, player, false, getPosASL player, HEYU_soundVolume, 1, 50];

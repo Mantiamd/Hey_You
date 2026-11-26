@@ -41,8 +41,13 @@ private _generalSignalAction = [
             private _statement = {
                 params ["_target", "_player", "_params"];
                 private _sound = _params;
+
+                // Cooldown (shared with targeted signals, HEYU_signalCooldown CBA setting)
+                if (diag_tickTime - HEYU_lastSignalTime < HEYU_signalCooldown) exitWith {};
+                HEYU_lastSignalTime = diag_tickTime;
+
                 // Play 3D sound at player's position (no text notification)
-                // Uses HEYU_soundVolume from CBA settings, fixed 50m audible range
+                // Uses hardcoded HEYU_soundVolume, fixed 50m audible range
                 playSound3D [_sound, _player, false, getPosASL _player, HEYU_soundVolume, 1, 50];
                 diag_log format ["[HEYU] Playing general signal sound: %1", _sound];
             };

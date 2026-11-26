@@ -78,6 +78,17 @@
     {}
 ] call CBA_fnc_addSetting;
 
+// Signal Cooldown (0-10s, default 2s)
+[
+    "HEYU_signalCooldown",
+    "SLIDER",
+    ["Signal Cooldown", "Minimum time in seconds between signals from the same player (Min: 0s, Max: 10s)"],
+    "Hey You!",
+    [0, 10, 2, 1],
+    1,
+    {}
+] call CBA_fnc_addSetting;
+
 // Only run the rest on clients with interface (not dedicated server or headless)
 if (!hasInterface) exitWith {};
 
@@ -88,6 +99,10 @@ HEYU_debugMode = false;
 
 // Sound volume (hardcoded, not configurable)
 HEYU_soundVolume = 3;
+
+// Cooldown / hint bookkeeping
+HEYU_lastSignalTime = -1e6;  // diag_tickTime of this client's last signal
+HEYU_hintToken = 0;          // Incremented per hint so stale clear-timers can be ignored
 
 // Available attention signals
 // Format: [id, display name, message format, sound file path]

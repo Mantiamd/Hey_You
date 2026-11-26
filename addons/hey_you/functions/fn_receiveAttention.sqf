@@ -82,11 +82,16 @@ if (HEYU_enable3dText) then {
 
 if (HEYU_enableHints) then {
     hint _message;
-    
+
+    // Tag this hint so only the timer for the most recent Hey You hint clears it.
+    // An older timer must not wipe a newer hint.
+    HEYU_hintToken = HEYU_hintToken + 1;
+
     // Clear hint after specified duration (uses HEYU_hintDuration from CBA settings)
-    [HEYU_hintDuration] spawn {
-        params ["_delay"];
-        sleep _delay;
+    [{
+        params ["_token"];
+        // Skip if a newer Hey You hint replaced ours
+        if (_token != HEYU_hintToken) exitWith {};
         hintSilent "";  // Clears the hint silently
-    };
+    }, [HEYU_hintToken], HEYU_hintDuration] call CBA_fnc_waitAndExecute;
 };
