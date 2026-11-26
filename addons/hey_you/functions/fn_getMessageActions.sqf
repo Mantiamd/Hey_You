@@ -22,12 +22,11 @@ if (isNull _targetUnit) exitWith {_actions};
     
     private _actionId = format ["HEYU_Signal_%1", _id];
     
-    // Create the statement code - we need to capture _targetUnit, _messageFormat, and _soundPath
-    // Using the params array to pass these values
+    // Create the statement code - target unit and signal id are passed via the params array
     private _statement = {
         params ["_target", "_player", "_params"];
-        _params params ["_signalTarget", "_msgFormat", "_sndPath"];
-        [_signalTarget, _msgFormat, _sndPath] call HEYU_fnc_sendAttention;
+        _params params ["_signalTarget", "_signalId"];
+        [_signalTarget, _signalId] call HEYU_fnc_sendAttention;
     };
     
     private _action = [
@@ -37,7 +36,7 @@ if (isNull _targetUnit) exitWith {_actions};
         _statement,
         {true},
         {},
-        [_targetUnit, _messageFormat, _soundPath]  // Pass target, message format, and sound path as params
+        [_targetUnit, _id]  // Pass target and signal id as params
     ] call ace_interact_menu_fnc_createAction;
     
     _actions pushBack [_action, [], _targetUnit];

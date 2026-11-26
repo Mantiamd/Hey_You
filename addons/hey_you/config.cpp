@@ -24,6 +24,18 @@ class CfgPatches {
     };
 };
 
+// Whitelist the remote-executed receiver so signals still work when remote
+// execution is restricted. Note: a mission that defines its own CfgRemoteExec
+// in description.ext overrides this and must whitelist the function itself.
+class CfgRemoteExec {
+    class Functions {
+        class HEYU_fnc_receiveAttention {
+            allowedTargets = 1;  // Clients only
+            jip = 0;             // Not JIP-persistent
+        };
+    };
+};
+
 class CfgSounds {
     class HEYU_Click {
         name = "HEYU_Click";

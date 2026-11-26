@@ -76,6 +76,8 @@ Keybinds skip the menu entirely — just look at a teammate and press the bound 
 ## Multiplayer
 
 - Signal logic runs on the sender's client; notifications are delivered to the receiver via `remoteExec`.
+- Only the signal type is sent over the network; the receiver builds the message itself and ignores signals from players outside their group, out of range, or sending too quickly.
+- `HEYU_fnc_receiveAttention` is whitelisted in the mod's `CfgRemoteExec`. If your mission defines its own `CfgRemoteExec` in `description.ext`, add `class HEYU_fnc_receiveAttention { allowedTargets = 1; };` under `Functions`.
 - All CBA settings are server-authoritative and synced to clients.
 - Compatible with dedicated servers (the mod's init exits early on headless/dedicated machines).
 

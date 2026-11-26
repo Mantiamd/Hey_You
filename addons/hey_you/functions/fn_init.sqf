@@ -200,7 +200,7 @@ if (HEYU_debugMode) then {
         "",
         {
             params ["_target", "_player"];
-            [_player, "DEBUG: You signaled yourself!"] call HEYU_fnc_receiveAttention;
+            [_player, "click"] call HEYU_fnc_receiveAttention;
         },
         {true}
     ] call ace_interact_menu_fnc_createAction;

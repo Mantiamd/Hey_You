@@ -45,6 +45,6 @@ private _signalData = HEYU_signals select _signalIndex;
 _signalData params ["_id", "_displayName", "_messageFormat", "_soundPath"];
 
 // Send the signal
-[_target, _messageFormat, _soundPath] call HEYU_fnc_sendAttention;
+[_target, _id] call HEYU_fnc_sendAttention;
 
 diag_log format ["[HEYU] Keybind signal sent: %1 to %2", _displayName, name _target];
