@@ -30,9 +30,9 @@ The goal is not to replace voice comms, but to **supplement them**, especially i
 - **CBA Keybinds** — Signal the group member you're looking at instantly:
   | Keybind | Signal |
   |---|---|
-  | `Left Ctrl + L` | Tongue Click |
-  | `Left Ctrl + ;` | Throw a Twig |
-  | `Left Ctrl + '` | Lizard Squeak |
+  | `Ctrl + L` | Tongue Click |
+  | `Ctrl + ;` | Throw a Twig |
+  | `Ctrl + '` | Lizard Squeak |
 - **3D Floating Text** — The receiver sees a fading yellow message above the sender's head.
 - **Hint Notification** — A standard hint also appears on the receiver's screen.
 - **3D Sound** — Each signal plays a positional sound audible within 50m.

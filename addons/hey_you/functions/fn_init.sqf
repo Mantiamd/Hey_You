@@ -104,7 +104,7 @@ HEYU_signals = [
 
 diag_log "[HEYU] Registering CBA keybinds...";
 
-// Keybind: Tongue Click (Left Ctrl + L)
+// Keybind: Tongue Click (Ctrl + L)
 [
     "HeyYou",                                    // Addon name (for keybind category)
     "HEYU_Key_Click",                            // Action ID
@@ -114,10 +114,10 @@ diag_log "[HEYU] Registering CBA keybinds...";
         [0] call HEYU_fnc_keybindSignal;         // Index 0 = Click Tongue
     },
     {},                                          // Up code (not used)
-    [0x26, [true, false, false]]                 // L key with Left Ctrl (DIK code for L = 0x26)
+    [0x26, [false, true, false]]                 // Ctrl + L (CBA modifier order: [shift, ctrl, alt]) (DIK code for L = 0x26)
 ] call CBA_fnc_addKeybind;
 
-// Keybind: Twig Throw (Left Ctrl + ;)
+// Keybind: Twig Throw (Ctrl + ;)
 [
     "HeyYou",
     "HEYU_Key_Twig",
@@ -126,10 +126,10 @@ diag_log "[HEYU] Registering CBA keybinds...";
         [1] call HEYU_fnc_keybindSignal;         // Index 1 = Throw a Twig
     },
     {},
-    [0x27, [true, false, false]]                 // ; key with Left Ctrl (DIK code for ; = 0x27)
+    [0x27, [false, true, false]]                 // Ctrl + ; (DIK code for ; = 0x27)
 ] call CBA_fnc_addKeybind;
 
-// Keybind: Lizard Squeak (Left Ctrl + ')
+// Keybind: Lizard Squeak (Ctrl + ')
 [
     "HeyYou",
     "HEYU_Key_Lizard",
@@ -138,7 +138,7 @@ diag_log "[HEYU] Registering CBA keybinds...";
         [2] call HEYU_fnc_keybindSignal;         // Index 2 = Lizard Squeak
     },
     {},
-    [0x28, [true, false, false]]                 // ' key with Left Ctrl (DIK code for ' = 0x28)
+    [0x28, [false, true, false]]                 // Ctrl + ' (DIK code for ' = 0x28)
 ] call CBA_fnc_addKeybind;
 
 diag_log "[HEYU] CBA keybinds registered";
@@ -149,8 +149,8 @@ diag_log "[HEYU] CBA keybinds registered";
 
 diag_log "[HEYU] Initializing Hey You system...";
 
-// Wait for player to be ready
-waitUntil {!isNull player && {alive player}};
+// No need to wait for the player: actions are added to the unit class (below),
+// so there is nothing to block on during postInit.
 
 // Create main "Hey You!" action - always visible
 private _mainAction = [
@@ -168,8 +168,9 @@ private _mainAction = [
     2                                        // Priority
 ] call ace_interact_menu_fnc_createAction;
 
-// Add to ACE self-interaction menu
-[player, 1, ["ACE_SelfActions"], _mainAction] call ace_interact_menu_fnc_addActionToObject;
+// Add to ACE self-interaction menu for every infantry unit class (with inheritance),
+// so the action survives respawn, team switch, and Zeus remote control
+["CAManBase", 1, ["ACE_SelfActions"], _mainAction, true] call ace_interact_menu_fnc_addActionToClass;
 
 // ============================================
 // DEBUG: Self-signal for solo testing
@@ -183,12 +184,13 @@ if (HEYU_debugMode) then {
         "[DEBUG] Signal Self",
         "",
         {
-            [player, "DEBUG: You signaled yourself!"] call HEYU_fnc_receiveAttention;
+            params ["_target", "_player"];
+            [_player, "DEBUG: You signaled yourself!"] call HEYU_fnc_receiveAttention;
         },
         {true}
     ] call ace_interact_menu_fnc_createAction;
 
-    [player, 1, ["ACE_SelfActions"], _debugAction] call ace_interact_menu_fnc_addActionToObject;
+    ["CAManBase", 1, ["ACE_SelfActions"], _debugAction, true] call ace_interact_menu_fnc_addActionToClass;
 };
 
 diag_log "[HEYU] Hey You system initialized successfully";
