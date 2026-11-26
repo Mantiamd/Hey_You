@@ -42,6 +42,7 @@ Skip the menu entirely — just look at a teammate and press a key. Default bind
   Ctrl + L — Tongue Click
   Ctrl + ; — Throw a Twig
   Ctrl + ' — Lizard Squeak
+  [i]Defaults assume a US keyboard layout. On other layouts (e.g. German or French), ; and ' are different keys — rebind under CBA Keybindings > HeyYou.[/i]
 
 [*] [b]3D Floating Text[/b]
 The receiver sees a fading yellow message above the sender's head so they know exactly who signaled them. The text hides while the sender is out of sight.

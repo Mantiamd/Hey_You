@@ -33,6 +33,8 @@ The goal is not to replace voice comms, but to **supplement them**, especially i
   | `Ctrl + L` | Tongue Click |
   | `Ctrl + ;` | Throw a Twig |
   | `Ctrl + '` | Lizard Squeak |
+
+  Default keys assume a US keyboard layout. On other layouts (e.g. German or French), `;` and `'` map to different keys, so rebind them under **CBA Keybindings > HeyYou**.
 - **3D Floating Text** — The receiver sees a fading yellow message above the sender's head (hidden while the sender is out of sight behind walls, terrain, or smoke).
 - **Hint Notification** — A standard hint also appears on the receiver's screen.
 - **3D Sound** — Each signal plays a positional sound audible within 50m.
