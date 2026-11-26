@@ -86,8 +86,17 @@ if (HEYU_enable3dText) then {
             // Calculate fade (1.0 -> 0.0 over duration)
             private _alpha = 1 - (_elapsed / _duration);
             
-            // Get position above unit's head
-            private _pos = (ASLToAGL getPosASL _unit) vectorAdd [0, 0, 2.2];
+            // Hide the text when the sender is not visible from the camera
+            // (walls, terrain, smoke). The hint still shows if enabled.
+            private _visibility = [vehicle player, "VIEW", vehicle _unit] checkVisibility [
+                AGLToASL (positionCameraToWorld [0, 0, 0]),
+                eyePos _unit
+            ];
+            if (_visibility < 0.1) exitWith {};
+            
+            // Get position above unit's head. Uses the visual (render-time) position
+            // so the text moves smoothly with the unit instead of jittering.
+            private _pos = (ASLToAGL getPosASLVisual _unit) vectorAdd [0, 0, 2.2];
             
             // Draw the 3D text
             drawIcon3D [
@@ -116,7 +125,7 @@ if (HEYU_enable3dText) then {
 // ============================================
 
 if (HEYU_enableHints) then {
-    hint _message;
+    hintSilent _message;  // hintSilent: no UI beep (the mod is meant to be silent)
 
     // Tag this hint so only the timer for the most recent Hey You hint clears it.
     // An older timer must not wipe a newer hint.

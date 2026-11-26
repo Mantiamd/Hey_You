@@ -44,7 +44,7 @@ Skip the menu entirely — just look at a teammate and press a key. Default bind
   Ctrl + ' — Lizard Squeak
 
 [*] [b]3D Floating Text[/b]
-The receiver sees a fading yellow message above the sender's head so they know exactly who signaled them.
+The receiver sees a fading yellow message above the sender's head so they know exactly who signaled them. The text hides while the sender is out of sight.
 
 [*] [b]Hint Notification[/b]
 A hint message also pops up on the receiver's screen with details about the signal.

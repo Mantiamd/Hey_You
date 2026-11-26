@@ -37,7 +37,7 @@ if (_signalIndex < 0) exitWith {
 
 // Check distance one more time (uses HEYU_maxDistance from CBA settings)
 if ((player distance _target) > HEYU_maxDistance) exitWith {
-    hint format ["Too far away! Must be within %1m", HEYU_maxDistance];
+    hintSilent format ["Too far away! Must be within %1m", HEYU_maxDistance];
 };
 
 // Cooldown - silently ignore signals sent too quickly (HEYU_signalCooldown CBA setting)
