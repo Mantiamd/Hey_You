@@ -52,8 +52,8 @@ A hint message also pops up on the receiver's screen with details about the sign
 [*] [b]3D Positional Sound[/b]
 Each signal plays a sound at the sender's position, audible within 50 meters. Nearby players will hear it too.
 
-[*] [b]Server-Synced Settings[/b]
-Admins can configure signal distance, signal cooldown, text duration, text size, and toggle notifications on or off through CBA addon options.
+[*] [b]CBA Settings[/b]
+Admins can configure signal distance, signal cooldown, and text/hint duration through CBA addon options. Each player can choose their own 3D text size and turn the 3D text or hint notifications on or off (admins can still force these).
 [/list]
 
 [hr][/hr]

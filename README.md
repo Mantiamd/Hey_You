@@ -39,17 +39,17 @@ The goal is not to replace voice comms, but to **supplement them**, especially i
 
 ## CBA Settings
 
-All settings are server-synced and configurable through CBA's addon options menu:
+All settings are configurable through CBA's addon options menu. **Server** settings are set by the server and synced to everyone; **Client** settings are each player's own preference (admins can still force them via CBA):
 
-| Setting | Default | Range |
-|---|---|---|
-| Max Signal Distance | 12m | 2–15m |
-| 3D Text Duration | 5s | 1–15s |
-| Hint Duration | 10s | 1–30s |
-| 3D Text Size | 0.025 | 0.01–0.05 |
-| Signal Cooldown | 2s | 0–10s |
-| Enable 3D Text | On | On/Off |
-| Enable Hints | On | On/Off |
+| Setting | Default | Range | Scope |
+|---|---|---|---|
+| Max Signal Distance | 12m | 2–15m | Server |
+| 3D Text Duration | 5s | 1–15s | Server |
+| Hint Duration | 10s | 1–30s | Server |
+| Signal Cooldown | 2s | 0–10s | Server |
+| 3D Text Size | 0.025 | 0.01–0.05 | Client |
+| Enable 3D Text | On | On/Off | Client |
+| Enable Hints | On | On/Off | Client |
 
 ## Requirements
 
@@ -78,7 +78,7 @@ Keybinds skip the menu entirely — just look at a teammate and press the bound 
 - Signal logic runs on the sender's client; notifications are delivered to the receiver via `remoteExec`.
 - Only the signal type is sent over the network; the receiver builds the message itself and ignores signals from players outside their group, out of range, or sending too quickly.
 - `HEYU_fnc_receiveAttention` is whitelisted in the mod's `CfgRemoteExec`. If your mission defines its own `CfgRemoteExec` in `description.ext`, add `class HEYU_fnc_receiveAttention { allowedTargets = 1; };` under `Functions`.
-- All CBA settings are server-authoritative and synced to clients.
+- Server-scope CBA settings are server-authoritative and synced to clients; client-scope settings (3D text size, enable 3D text, enable hints) are per player unless an admin forces them.
 - Compatible with dedicated servers (the mod's init exits early on headless/dedicated machines).
 
 ## Inspiration

@@ -21,7 +21,7 @@ if (_signalIndex < 0 || _signalIndex >= count HEYU_signals) exitWith {
 
 // Silent fail if the sender is dead or unconscious (ACE hides the menu then,
 // but keybinds still fire)
-if !([player] call ace_common_fnc_isAwake) exitWith {};
+if !([ACE_player] call ace_common_fnc_isAwake) exitWith {};
 
 // Get the object the player is looking at.
 // cursorObject is used instead of cursorTarget, which depends on the game's
@@ -35,14 +35,14 @@ if (isNull _target) exitWith {};
 // (human player in our group, alive, not ourselves) instead of the vehicle.
 if !(_target isKindOf "CAManBase") then {
     private _crew = (crew _target) select {
-        _x != player &&
+        _x != ACE_player &&
         isPlayer _x &&
         alive _x &&
-        group _x == group player
+        group _x == group ACE_player
     };
     _target = objNull;
     if (_crew isNotEqualTo []) then {
-        _crew = [_crew, [], {player distance _x}, "ASCEND"] call BIS_fnc_sortBy;
+        _crew = [_crew, [], {ACE_player distance _x}, "ASCEND"] call BIS_fnc_sortBy;
         _target = _crew select 0;
     };
 };
@@ -54,13 +54,13 @@ if (isNull _target) exitWith {};
 if (!isPlayer _target) exitWith {};
 
 // Silent fail if target is not in our group
-if (group _target != group player) exitWith {};
+if (group _target != group ACE_player) exitWith {};
 
 // Silent fail if target is too far away
-if ((player distance _target) > HEYU_maxDistance) exitWith {};
+if ((ACE_player distance _target) > HEYU_maxDistance) exitWith {};
 
 // Silent fail if target is the player themselves
-if (_target == player) exitWith {};
+if (_target == ACE_player) exitWith {};
 
 // Silent fail if target is dead
 if (!alive _target) exitWith {};

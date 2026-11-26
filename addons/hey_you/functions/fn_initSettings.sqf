@@ -53,7 +53,7 @@
     ["Enable 3D Text", "Show floating text above the sender's head"],
     "Hey You!",
     true,
-    1,
+    0,  // 0 = Client setting (each player chooses; admins can still force it)
     {}
 ] call CBA_fnc_addSetting;
 
@@ -64,7 +64,7 @@
     ["Enable Hints", "Show hint notification at bottom of screen"],
     "Hey You!",
     true,
-    1,
+    0,
     {}
 ] call CBA_fnc_addSetting;
 
@@ -75,7 +75,7 @@
     ["3D Text Size", "Size of the floating text above sender (Min: 0.01, Max: 0.05)"],
     "Hey You!",
     [0.01, 0.05, 0.025, 3],
-    1,
+    0,
     {}
 ] call CBA_fnc_addSetting;
 
