@@ -25,6 +25,13 @@ class CfgPatches {
     };
 };
 
+// Register CBA settings at preInit, as CBA requires
+class Extended_PreInit_EventHandlers {
+    class HEYU_Attention {
+        init = "call HEYU_fnc_initSettings";
+    };
+};
+
 // Whitelist the remote-executed receiver so signals still work when remote
 // execution is restricted. Note: a mission that defines its own CfgRemoteExec
 // in description.ext overrides this and must whitelist the function itself.
@@ -63,6 +70,7 @@ class CfgFunctions {
             file = "\hey_you\functions";
             
             // Initialization
+            class initSettings {};         // CBA settings (called at preInit via XEH below)
             class init {
                 postInit = 1;  // Auto-initialize on mission start
             };

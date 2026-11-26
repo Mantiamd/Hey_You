@@ -92,7 +92,10 @@ private _nearbyUnits = (units group _player) select {
     private _dist = round (_player distance _unit);
     
     // Build strings using format (more reliable than concatenation)
-    private _actionId = format ["HEYU_Player_%1", _forEachIndex];
+    // Key the action on the unit's network id, not its list position: ACE rebuilds
+    // this list while the menu is open, and a position-based id could point at a
+    // different player if someone moves out of range. ("2:15" -> "2_15")
+    private _actionId = format ["HEYU_Player_%1", (netId _unit) splitString ":" joinString "_"];
     private _displayText = format ["%1 (%2m)", _unitName, _dist];
     
     // Create child action - statement is empty, children will be the message options
