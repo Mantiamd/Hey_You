@@ -6,6 +6,31 @@ Hey You! is an Arma 3 mod that provides a simple, effective way to get the atten
 
 [hr][/hr]
 
+[h1]LATEST UPDATE[/h1]
+
+[b]Important:[/b]
+[list]
+[*] [b]Everyone must update.[/b] Signals are now sent differently, so players on the old version and the new version can't signal each other.
+[*] [b]Keybinds have been reset.[/b] The keybind category was renamed to "Hey You!", so any custom binds go back to the defaults (Ctrl + L / ; / '). Rebind under CBA Keybindings > Hey You! if needed.
+[/list]
+
+[b]Fixes and changes:[/b]
+[list]
+[*] Default keybinds are now actually Ctrl (they were Shift by mistake).
+[*] The "Hey You!" menu no longer disappears after respawning, team switching, or Zeus remote control.
+[*] New [b]Signal Cooldown[/b] setting (default 2s) to stop signal spam.
+[*] Received signals are checked: only nearby group members can signal you, and messages can't be faked.
+[*] Works on servers and missions that restrict remote execution, and with player-hosted games.
+[*] Keybinds no longer work while you're unconscious, and they target the teammate under your crosshair more reliably.
+[*] Looking at a vehicle with a keybind now signals the nearest group member inside it.
+[*] Hints no longer beep and no longer wipe other hints early.
+[*] 3D text moves smoothly and hides while the sender is out of sight.
+[*] 3D text size and the 3D text / hint toggles are now per-player settings.
+[*] All text can now be translated (stringtable).
+[/list]
+
+[hr][/hr]
+
 [h1]WHY THIS MOD?[/h1]
 
 Arma already has signal sounds, hand-and-arm gestures, and voice communication — so why another communication tool?
@@ -38,7 +63,7 @@ Open the "Hey You!" menu from ACE self-interaction to pick a nearby group member
 Play a sound without targeting anyone specific. Great for a quick ambient "heads up" to anyone nearby.
 
 [*] [b]CBA Keybinds[/b]
-Skip the menu entirely — just look at a teammate and press a key. Default binds:
+Skip the menu entirely — just look at a teammate and press a key. Looking at a vehicle signals the nearest group member riding in it. Default binds:
   Ctrl + L — Tongue Click
   Ctrl + ; — Throw a Twig
   Ctrl + ' — Lizard Squeak
@@ -52,6 +77,9 @@ A hint message also pops up on the receiver's screen with details about the sign
 
 [*] [b]3D Positional Sound[/b]
 Each signal plays a sound at the sender's position, audible within 50 meters. Nearby players will hear it too.
+
+[*] [b]Spam Protection[/b]
+A short cooldown between signals (default 2 seconds, adjustable by admins) keeps things subtle.
 
 [*] [b]CBA Settings[/b]
 Admins can configure signal distance, signal cooldown, and text/hint duration through CBA addon options. Each player can choose their own 3D text size and turn the 3D text or hint notifications on or off (admins can still force these).
@@ -92,11 +120,27 @@ See the [url=https://github.com/Mantiamd/Hey_You]GitHub README[/url] for more de
 
 [hr][/hr]
 
+[h1]SERVER ADMINS & MISSION MAKERS[/h1]
+
+[list]
+[*] [b]Signature verification:[/b] copy [i]Hey_You.bikey[/i] from the mod's [i]keys[/i] folder into your server's [i]keys[/i] folder.
+[*] [b]Remote execution whitelist:[/b] the mod whitelists its own function. If your mission defines its own CfgRemoteExec in description.ext, add this under Functions:
+[code]class HEYU_fnc_receiveAttention { allowedTargets = 0; };[/code]
+[/list]
+
+[hr][/hr]
+
 [h1]INSPIRATION[/h1]
 
 The idea for this mod came from a Discord discussion where players were sharing mod suggestions and concepts. [b]Miller[/b] [i](aka Miller's Marauders, aka that one of many Millers snooping around)[/i] suggested a mechanic where you could get a teammate's attention by throwing a small object, like a twig, at them.
 
 After discussing the idea with him directly, he also pointed me toward an interview with former [b]MACV-SOG LTC Ed Wolcoff (RT New York)[/b]. In that interview, Wolcoff describes the use of a subtle attention-getting noise known as a [b]"lizard squeak"[/b] — a concept that is also represented in this mod.
+
+[hr][/hr]
+
+[h1]LICENSE[/h1]
+
+Released under the [url=https://www.bohemia.net/community/licenses/arma-public-license-share-alike]Arma Public License Share Alike (APL-SA)[/url].
 
 [hr][/hr]
 
