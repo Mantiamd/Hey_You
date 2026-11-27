@@ -34,7 +34,7 @@ The goal is not to replace voice comms, but to **supplement them**, especially i
   | `Ctrl + ;` | Throw a Twig |
   | `Ctrl + '` | Lizard Squeak |
 
-  Default keys assume a US keyboard layout. On other layouts (e.g. German or French), `;` and `'` map to different keys, so rebind them under **CBA Keybindings > HeyYou**.
+  Default keys assume a US keyboard layout. On other layouts (e.g. German or French), `;` and `'` map to different keys, so rebind them under **CBA Keybindings > Hey You!**
 - **3D Floating Text** — The receiver sees a fading yellow message above the sender's head (hidden while the sender is out of sight behind walls, terrain, or smoke).
 - **Hint Notification** — A standard hint also appears on the receiver's screen.
 - **3D Sound** — Each signal plays a positional sound audible within 50m.
@@ -79,7 +79,7 @@ Keybinds skip the menu entirely — just look at a teammate and press the bound 
 
 - Signal logic runs on the sender's client; notifications are delivered to the receiver via `remoteExec`.
 - Only the signal type is sent over the network; the receiver builds the message itself and ignores signals from players outside their group, out of range, or sending too quickly.
-- `HEYU_fnc_receiveAttention` is whitelisted in the mod's `CfgRemoteExec`. If your mission defines its own `CfgRemoteExec` in `description.ext`, add `class HEYU_fnc_receiveAttention { allowedTargets = 1; };` under `Functions`.
+- `HEYU_fnc_receiveAttention` is whitelisted in the mod's `CfgRemoteExec`. If your mission defines its own `CfgRemoteExec` in `description.ext`, add `class HEYU_fnc_receiveAttention { allowedTargets = 0; };` under `Functions`.
 - Server-scope CBA settings are server-authoritative and synced to clients; client-scope settings (3D text size, enable 3D text, enable hints) are per player unless an admin forces them.
 - Compatible with dedicated servers (the mod's init exits early on headless/dedicated machines).
 
@@ -95,4 +95,4 @@ Want to help keep me off the overtime list at work and spending more time on Arm
 
 ## License
 
-See repository for license details.
+Licensed under the [Arma Public License Share Alike (APL-SA)](https://www.bohemia.net/community/licenses/arma-public-license-share-alike). See [LICENSE](LICENSE).

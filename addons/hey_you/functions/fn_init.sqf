@@ -1,5 +1,5 @@
 /*
- * Author: YourName
+ * Author: GoonSix
  * Initializes the Hey You system
  * Adds ACE self-interaction menu and CBA keybinds (settings: HEYU_fnc_initSettings)
  *
@@ -24,24 +24,22 @@ HEYU_hintToken = 0;          // Incremented per hint so stale clear-timers can b
 
 // Available attention signals
 // Format: [id, display name, message format, sound file path]
-// %1 will be replaced with sender's name
+// %1 will be replaced with sender's name. Text comes from stringtable.xml
 HEYU_signals = [
-    ["click", "Click Tongue", "%1 clicks their tongue to get your attention", "\hey_you\sounds\TongueClick2x.ogg"],
-    ["twig", "Throw a Twig", "%1 throws a twig at you to get your attention", "\hey_you\sounds\Twig_Crack.ogg"],
-    ["lizard", "Lizard Squeak", "%1 makes a lizard squeak sound towards you to get your attention", "\hey_you\sounds\Lizard_Squeak.ogg"]
+    ["click", localize "STR_HEYU_Signal_Click", localize "STR_HEYU_Message_Click", "\hey_you\sounds\TongueClick2x.ogg"],
+    ["twig", localize "STR_HEYU_Signal_Twig", localize "STR_HEYU_Message_Twig", "\hey_you\sounds\Twig_Crack.ogg"],
+    ["lizard", localize "STR_HEYU_Signal_Lizard", localize "STR_HEYU_Message_Lizard", "\hey_you\sounds\Lizard_Squeak.ogg"]
 ];
 
 // ============================================
 // CBA KEYBINDS SETUP
 // ============================================
 
-diag_log "[HEYU] Registering CBA keybinds...";
-
 // Keybind: Tongue Click (Ctrl + L)
 [
-    "HeyYou",                                    // Addon name (for keybind category)
+    "Hey You!",                                  // Addon name (keybind category). Kept literal, not localized: CBA stores custom binds under it
     "HEYU_Key_Click",                            // Action ID
-    "Signal: Tongue Click",                      // Display name
+    localize "STR_HEYU_Key_Click",               // Display name
     {
         // Down code - when key is pressed
         [0] call HEYU_fnc_keybindSignal;         // Index 0 = Click Tongue
@@ -52,9 +50,9 @@ diag_log "[HEYU] Registering CBA keybinds...";
 
 // Keybind: Twig Throw (Ctrl + ;)
 [
-    "HeyYou",
+    "Hey You!",
     "HEYU_Key_Twig",
-    "Signal: Throw a Twig",
+    localize "STR_HEYU_Key_Twig",
     {
         [1] call HEYU_fnc_keybindSignal;         // Index 1 = Throw a Twig
     },
@@ -64,9 +62,9 @@ diag_log "[HEYU] Registering CBA keybinds...";
 
 // Keybind: Lizard Squeak (Ctrl + ')
 [
-    "HeyYou",
+    "Hey You!",
     "HEYU_Key_Lizard",
-    "Signal: Lizard Squeak",
+    localize "STR_HEYU_Key_Lizard",
     {
         [2] call HEYU_fnc_keybindSignal;         // Index 2 = Lizard Squeak
     },
@@ -74,13 +72,9 @@ diag_log "[HEYU] Registering CBA keybinds...";
     [0x28, [false, true, false]]                 // Ctrl + ' (DIK code for ' = 0x28)
 ] call CBA_fnc_addKeybind;
 
-diag_log "[HEYU] CBA keybinds registered";
-
 // ============================================
 // ACE SELF-INTERACTION SETUP
 // ============================================
-
-diag_log "[HEYU] Initializing Hey You system...";
 
 // No need to wait for the player: actions are added to the unit class (below),
 // so there is nothing to block on during postInit.
@@ -88,7 +82,7 @@ diag_log "[HEYU] Initializing Hey You system...";
 // Create main "Hey You!" action - always visible
 private _mainAction = [
     "HEYU_GetAttention",                     // Action ID
-    "Hey You!",                              // Display name
+    localize "STR_HEYU_Category",            // Display name
     "",                                      // Icon (empty = default)
     {},                                      // Statement (nothing - just opens submenu)
     {true},                                  // Always show (General Signal is always available)

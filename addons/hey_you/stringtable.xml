@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="Hey_You">
+    <Package name="Main">
+        <!-- Category (CBA settings + keybinds) and main menu -->
+        <Key ID="STR_HEYU_Category">
+            <English>Hey You!</English>
+        </Key>
+        <Key ID="STR_HEYU_GeneralSignal">
+            <English>General Signal</English>
+        </Key>
+
+        <!-- Signals: menu names -->
+        <Key ID="STR_HEYU_Signal_Click">
+            <English>Click Tongue</English>
+        </Key>
+        <Key ID="STR_HEYU_Signal_Twig">
+            <English>Throw a Twig</English>
+        </Key>
+        <Key ID="STR_HEYU_Signal_Lizard">
+            <English>Lizard Squeak</English>
+        </Key>
+
+        <!-- Signals: receiver messages (%1 = sender's name) -->
+        <Key ID="STR_HEYU_Message_Click">
+            <English>%1 clicks their tongue to get your attention</English>
+        </Key>
+        <Key ID="STR_HEYU_Message_Twig">
+            <English>%1 throws a twig at you to get your attention</English>
+        </Key>
+        <Key ID="STR_HEYU_Message_Lizard">
+            <English>%1 makes a lizard squeak sound towards you to get your attention</English>
+        </Key>
+        <Key ID="STR_HEYU_TooFar">
+            <English>Too far away! Must be within %1m</English>
+        </Key>
+
+        <!-- Keybinds -->
+        <Key ID="STR_HEYU_Key_Click">
+            <English>Signal: Tongue Click</English>
+        </Key>
+        <Key ID="STR_HEYU_Key_Twig">
+            <English>Signal: Throw a Twig</English>
+        </Key>
+        <Key ID="STR_HEYU_Key_Lizard">
+            <English>Signal: Lizard Squeak</English>
+        </Key>
+
+        <!-- CBA settings -->
+        <Key ID="STR_HEYU_Set_MaxDistance">
+            <English>Max Signal Distance</English>
+        </Key>
+        <Key ID="STR_HEYU_Set_MaxDistance_Tip">
+            <English>Maximum distance in meters to signal a teammate (Min: 2m, Max: 15m)</English>
+        </Key>
+        <Key ID="STR_HEYU_Set_3dTextDuration">
+            <English>3D Text Duration</English>
+        </Key>
+        <Key ID="STR_HEYU_Set_3dTextDuration_Tip">
+            <English>How long the floating text stays above the sender in seconds (Min: 1s, Max: 15s)</English>
+        </Key>
+        <Key ID="STR_HEYU_Set_HintDuration">
+            <English>Hint Duration</English>
+        </Key>
+        <Key ID="STR_HEYU_Set_HintDuration_Tip">
+            <English>How long the hint notification stays on screen in seconds (Min: 1s, Max: 30s)</English>
+        </Key>
+        <Key ID="STR_HEYU_Set_Enable3dText">
+            <English>Enable 3D Text</English>
+        </Key>
+        <Key ID="STR_HEYU_Set_Enable3dText_Tip">
+            <English>Show floating text above the sender's head</English>
+        </Key>
+        <Key ID="STR_HEYU_Set_EnableHints">
+            <English>Enable Hints</English>
+        </Key>
+        <Key ID="STR_HEYU_Set_EnableHints_Tip">
+            <English>Show hint notification at bottom of screen</English>
+        </Key>
+        <Key ID="STR_HEYU_Set_3dTextSize">
+            <English>3D Text Size</English>
+        </Key>
+        <Key ID="STR_HEYU_Set_3dTextSize_Tip">
+            <English>Size of the floating text above sender (Min: 0.01, Max: 0.05)</English>
+        </Key>
+        <Key ID="STR_HEYU_Set_SignalCooldown">
+            <English>Signal Cooldown</English>
+        </Key>
+        <Key ID="STR_HEYU_Set_SignalCooldown_Tip">
+            <English>Minimum time in seconds between signals from the same player (Min: 0s, Max: 10s)</English>
+        </Key>
+    </Package>
+</Project>

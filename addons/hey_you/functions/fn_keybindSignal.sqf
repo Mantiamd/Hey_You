@@ -1,5 +1,5 @@
 /*
- * Author: YourName
+ * Author: GoonSix
  * Handles keybind-triggered signals
  * Checks if player is looking at a valid group member and sends the signal
  *
@@ -72,4 +72,6 @@ _signalData params ["_id", "_displayName", "_messageFormat", "_soundPath"];
 // Send the signal
 [_target, _id] call HEYU_fnc_sendAttention;
 
-diag_log format ["[HEYU] Keybind signal sent: %1 to %2", _displayName, name _target];
+if (HEYU_debugMode) then {
+    diag_log format ["[HEYU] Keybind signal sent: %1 to %2", _displayName, name _target];
+};

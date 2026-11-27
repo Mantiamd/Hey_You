@@ -1,12 +1,12 @@
 name = "Hey You";
-author = "YourName";
+author = "GoonSix";
 picture = "mod.paa";
 logo = "mod.paa";
 logoOver = "mod.paa";
 logoSmall = "mod.paa";
 tooltip = "Silent attention signals for teammates";
 tooltipOwned = "Silent attention signals for teammates";
-overview = "Adds ACE self-interaction menu to silently get a teammate's attention with various signals like throwing a twig, snapping fingers, etc.";
+overview = "Adds ACE self-interaction menu to silently get a teammate's attention with subtle signals: a tongue click, a thrown twig, or a lizard squeak.";
 action = "";
 actionName = "";
 hideName = 0;

@@ -1,5 +1,5 @@
 /*
- * Author: YourName
+ * Author: GoonSix
  * Returns dynamic ACE actions for "Hey You!" submenu
  * Includes "General Signal" (sound only) and list of nearby players
  *
@@ -22,7 +22,7 @@ private _actions = [];
 // Create "General Signal" submenu with sound options
 private _generalSignalAction = [
     "HEYU_GeneralSignal",
-    "General Signal",
+    localize "STR_HEYU_GeneralSignal",
     "",
     {},
     {true},
@@ -49,7 +49,7 @@ private _generalSignalAction = [
                 // Play 3D sound at player's position (no text notification)
                 // Uses hardcoded HEYU_soundVolume, fixed 50m audible range
                 playSound3D [_sound, _player, false, getPosASL _player, HEYU_soundVolume, 1, 50];
-                diag_log format ["[HEYU] Playing general signal sound: %1", _sound];
+                if (HEYU_debugMode) then {diag_log format ["[HEYU] Playing general signal sound: %1", _sound]};
             };
             
             private _action = [

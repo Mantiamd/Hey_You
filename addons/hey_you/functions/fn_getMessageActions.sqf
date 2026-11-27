@@ -1,5 +1,5 @@
 /*
- * Author: YourName
+ * Author: GoonSix
  * Returns ACE actions for each signal type (twig, click, lizard)
  * Called when selecting a specific player
  *

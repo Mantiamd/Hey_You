@@ -1,5 +1,5 @@
 /*
- * Author: YourName
+ * Author: GoonSix
  * Sends an attention signal to a target player
  * Plays 3D sound at sender's position and sends the signal id to the receiver.
  * The receiver builds the message text itself (see HEYU_fnc_receiveAttention),
@@ -37,21 +37,23 @@ if (_signalIndex < 0) exitWith {
 
 // Check distance one more time (uses HEYU_maxDistance from CBA settings)
 if ((ACE_player distance _target) > HEYU_maxDistance) exitWith {
-    hintSilent format ["Too far away! Must be within %1m", HEYU_maxDistance];
+    hintSilent format [localize "STR_HEYU_TooFar", HEYU_maxDistance];
 };
 
 // Cooldown - silently ignore signals sent too quickly (HEYU_signalCooldown CBA setting)
 if (diag_tickTime - HEYU_lastSignalTime < HEYU_signalCooldown) exitWith {};
 HEYU_lastSignalTime = diag_tickTime;
 
-diag_log format ["[HEYU] %1 sending attention signal '%2' to %3", name ACE_player, _signalId, name _target];
+if (HEYU_debugMode) then {
+    diag_log format ["[HEYU] %1 sending attention signal '%2' to %3", name ACE_player, _signalId, name _target];
+};
 
 // Play 3D sound at sender's position (audible within 50m)
 // Uses hardcoded HEYU_soundVolume, fixed 50m audible range
 if (_soundPath != "") then {
     // playSound3D: [sound, source, isInside, position, volume, pitch, maxDistance]
     playSound3D [_soundPath, ACE_player, false, getPosASL ACE_player, HEYU_soundVolume, 1, 50];
-    diag_log format ["[HEYU] Playing sound: %1", _soundPath];
+    if (HEYU_debugMode) then {diag_log format ["[HEYU] Playing sound: %1", _soundPath]};
 };
 
 // Send notification to the target player: sender object + signal id only

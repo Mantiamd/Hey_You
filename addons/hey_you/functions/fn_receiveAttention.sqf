@@ -1,5 +1,5 @@
 /*
- * Author: YourName
+ * Author: GoonSix
  * Receives and displays an attention signal
  * Shows 3D text above sender and hint notification
  * Uses CBA settings for duration and text size
@@ -31,35 +31,35 @@ if (isNil "HEYU_signals") exitWith {};
 // ============================================
 
 if (isNull _sender || {!alive _sender} || {!isPlayer _sender}) exitWith {
-    diag_log "[HEYU] receiveAttention dropped: invalid sender";
+    if (HEYU_debugMode) then {diag_log "[HEYU] receiveAttention dropped: invalid sender"};
 };
 
 // Sender must be in our group
 if (group _sender != group player) exitWith {
-    diag_log format ["[HEYU] receiveAttention dropped: %1 not in group", name _sender];
+    if (HEYU_debugMode) then {diag_log format ["[HEYU] receiveAttention dropped: %1 not in group", name _sender]};
 };
 
 // Sender must be within range (+5m slack for movement during network delay)
 if ((player distance _sender) > (HEYU_maxDistance + 5)) exitWith {
-    diag_log format ["[HEYU] receiveAttention dropped: %1 out of range", name _sender];
+    if (HEYU_debugMode) then {diag_log format ["[HEYU] receiveAttention dropped: %1 out of range", name _sender]};
 };
 
 // Rate limit per sender (cooldown minus 0.5s slack for network jitter)
 private _lastReceived = _sender getVariable ["HEYU_lastReceived", -1e6];
 if (diag_tickTime - _lastReceived < (HEYU_signalCooldown - 0.5)) exitWith {
-    diag_log format ["[HEYU] receiveAttention dropped: %1 rate limited", name _sender];
+    if (HEYU_debugMode) then {diag_log format ["[HEYU] receiveAttention dropped: %1 rate limited", name _sender]};
 };
 _sender setVariable ["HEYU_lastReceived", diag_tickTime];  // Local only
 
 // Build the message locally from the signal id
 private _signalIndex = HEYU_signals findIf {(_x select 0) == _signalId};
 if (_signalIndex < 0) exitWith {
-    diag_log format ["[HEYU] receiveAttention dropped: unknown signal id %1", _signalId];
+    if (HEYU_debugMode) then {diag_log format ["[HEYU] receiveAttention dropped: unknown signal id %1", _signalId]};
 };
 (HEYU_signals select _signalIndex) params ["", "", "_messageFormat"];
 private _message = format [_messageFormat, name _sender];
 
-diag_log format ["[HEYU] Received attention signal from %1: %2", name _sender, _message];
+if (HEYU_debugMode) then {diag_log format ["[HEYU] Received attention signal from %1: %2", name _sender, _message]};
 
 // ============================================
 // 3D TEXT ABOVE SENDER

@@ -1,5 +1,5 @@
 /*
- * Author: YourName
+ * Author: GoonSix
  * Registers the Hey You CBA settings.
  * Runs at preInit on every machine (server, clients, headless) via
  * Extended_PreInit_EventHandlers in config.cpp, as CBA requires.
@@ -17,8 +17,8 @@
 [
     "HEYU_maxDistance",
     "SLIDER",
-    ["Max Signal Distance", "Maximum distance in meters to signal a teammate (Min: 2m, Max: 15m)"],
-    "Hey You!",
+    [localize "STR_HEYU_Set_MaxDistance", localize "STR_HEYU_Set_MaxDistance_Tip"],
+    localize "STR_HEYU_Category",
     [2, 15, 12, 0],
     1,  // 1 = Server setting (synced to clients)
     {}
@@ -28,8 +28,8 @@
 [
     "HEYU_3dTextDuration",
     "SLIDER",
-    ["3D Text Duration", "How long the floating text stays above the sender in seconds (Min: 1s, Max: 15s)"],
-    "Hey You!",
+    [localize "STR_HEYU_Set_3dTextDuration", localize "STR_HEYU_Set_3dTextDuration_Tip"],
+    localize "STR_HEYU_Category",
     [1, 15, 5, 0],
     1,
     {}
@@ -39,8 +39,8 @@
 [
     "HEYU_hintDuration",
     "SLIDER",
-    ["Hint Duration", "How long the hint notification stays on screen in seconds (Min: 1s, Max: 30s)"],
-    "Hey You!",
+    [localize "STR_HEYU_Set_HintDuration", localize "STR_HEYU_Set_HintDuration_Tip"],
+    localize "STR_HEYU_Category",
     [1, 30, 10, 0],
     1,
     {}
@@ -50,8 +50,8 @@
 [
     "HEYU_enable3dText",
     "CHECKBOX",
-    ["Enable 3D Text", "Show floating text above the sender's head"],
-    "Hey You!",
+    [localize "STR_HEYU_Set_Enable3dText", localize "STR_HEYU_Set_Enable3dText_Tip"],
+    localize "STR_HEYU_Category",
     true,
     0,  // 0 = Client setting (each player chooses; admins can still force it)
     {}
@@ -61,8 +61,8 @@
 [
     "HEYU_enableHints",
     "CHECKBOX",
-    ["Enable Hints", "Show hint notification at bottom of screen"],
-    "Hey You!",
+    [localize "STR_HEYU_Set_EnableHints", localize "STR_HEYU_Set_EnableHints_Tip"],
+    localize "STR_HEYU_Category",
     true,
     0,
     {}
@@ -72,8 +72,8 @@
 [
     "HEYU_3dTextSize",
     "SLIDER",
-    ["3D Text Size", "Size of the floating text above sender (Min: 0.01, Max: 0.05)"],
-    "Hey You!",
+    [localize "STR_HEYU_Set_3dTextSize", localize "STR_HEYU_Set_3dTextSize_Tip"],
+    localize "STR_HEYU_Category",
     [0.01, 0.05, 0.025, 3],
     0,
     {}
@@ -83,8 +83,8 @@
 [
     "HEYU_signalCooldown",
     "SLIDER",
-    ["Signal Cooldown", "Minimum time in seconds between signals from the same player (Min: 0s, Max: 10s)"],
-    "Hey You!",
+    [localize "STR_HEYU_Set_SignalCooldown", localize "STR_HEYU_Set_SignalCooldown_Tip"],
+    localize "STR_HEYU_Category",
     [0, 10, 2, 1],
     1,
     {}
